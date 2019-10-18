@@ -10,7 +10,18 @@
 <head>
     <title>Title</title>
 </head>
+
+<script src="http://code.jquery.com/jquery-1.4.1.min.js"></script>
+<script>
+
+
+</script>
 <body>
-<a href="login2">点击</a>
+
+账号 <input id="name" type="text"><br>
+密码<input id="password" type="password"><br>
+<button onclick="testjson">提交</button>
 </body>
+
+
 </html>
