@@ -26,7 +26,13 @@ public class Main {
 
 
 //        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
+//
 //        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
+//
+
+
+
+//
 //        SqlSessionFactory build = sqlSessionFactoryBuilder.build(resourceAsStream);
 
 
