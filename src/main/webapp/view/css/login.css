@@ -1,0 +1,167 @@
+body,*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	height: 100%;/*解决背景不根据窗口大小自适应问题*/
+}
+body{
+	background: url(../img/登录.jpg) no-repeat;
+	background-size: 100% 100%;/*解决背景不根据窗口大小自适应问题*/
+	position: absolute;/*解决背景不根据窗口大小自适应问题*/
+	padding: 0;/*解决背景不根据窗口大小自适应问题*/
+	margin: 0;/*解决背景不根据窗口大小自适应问题*/
+	
+}
+.Bbox{
+	width: 300px;
+	height: 400px;
+	background: rgba(0,0,0,.0);
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: -200px;
+	display: block;
+}
+.Bbox2{
+	width: 300px;
+	height: 500px;
+	background: rgba(0,0,0,.0);
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -150px;
+	margin-top: -250px;
+	display: none;
+}
+.box{
+	width: 260px;
+	height: 380px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -130px;
+	margin-top: -190px;
+}
+.box2{
+	width: 260px;
+	height: 460px;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -130px;
+	margin-top: -230px;
+}
+.box h2{
+	text-align: center;
+}
+.box .login{
+	width: 260px;
+	height: 30px;
+	font-size: 18px;
+	text-align: center;
+	margin: 40px 0;
+}
+.box .login #login,.box .login #login button{
+	float: left;
+	width: 130px;
+	height: 31px;	
+	background: rgba(0,0,0,.6);
+
+}
+.box .login #registe,.box .login #registe button{
+	float: right;
+	width: 130px;
+	height: 31px;
+	background: rgba(0,0,0,.3);
+}
+.box .login button{
+	margin-top: -1px;
+	padding-bottom: 4px;
+	padding-top: 4px;
+	font-size: 18px;
+} 
+.box input[type="text"],.box input[type="password"]{
+	width: 251px;
+	height: 30px;
+	margin-bottom: 15px;
+	padding-left: 5px;
+}
+.box #code,.box #code2{
+	width: 145px;
+	height: 30px;
+	float: left;
+	padding-left: 5px;
+}
+.box .code{
+	float: right;
+	text-align: center;
+}
+.box a{
+	float: right;
+	text-decoration: none;
+}
+.checkbox{
+	position: absolute;
+	left: 0;
+	margin-top: 20px;
+}
+a{
+	margin-top: 6px;
+}
+button{
+	width: 260px;
+	height: 30px;
+	margin-top: 20px;
+	background: rgba(13,126,5,.9);
+	border: none;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+}
+#status{
+	float: left;
+	padding-left: 6px;
+	color: #ddd;
+}
+#teacher,#student{
+	width: 60px;
+	height: 30px;
+	background: rgba(0,0,0,.7);
+	padding: 8px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+}
+#teacher{
+	margin-right: 20px;
+}
+.student{
+	display: none;
+	height: 220px;
+	width: 260px;
+	position: fixed;
+	left:50%;
+	top:50%;
+	margin-top: -60px;
+	margin-left: 140px;
+	background: rgba(0,0,0,.5);
+}
+.student input[type="text"],.teacher input[type="text"]{
+	width: 200px;
+	margin-left: 20px;
+}
+.student #name1,.teacher #name2{
+	margin-top: 20px;
+}
+.teacher{
+	display: none;
+	height: 200px;
+	width: 260px;
+	position: fixed;
+	left:50%;
+	top:50%;
+	margin-top: -60px;
+	margin-left: 140px;
+	background: rgba(0,0,0,.5);
+}

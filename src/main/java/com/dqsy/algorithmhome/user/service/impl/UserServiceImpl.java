@@ -14,8 +14,35 @@ public class UserServiceImpl implements UserService {
     UserDao userDao;
 
     //JDBC  --->
-    public int add(User user) {
-        int a = userDao.add(user);
+    public int AddUser(User user) {
+        int a = userDao.AddUser(user);
         return a;
     }
+
+    @Override
+    public Boolean FindUser(String username) {
+        User user = userDao.FindUser(username);
+        if (user == null) {
+            return false;
+        } else {
+            return true;
+
+        }
+
+    }
+
+    @Override
+    public Boolean CheckUser(User user) {
+        User u_ser = userDao.CheckUser(user);
+        if (u_ser == null) {
+            return false;
+        } else {
+            return true;
+
+        }
+
+
+    }
+
+
 }

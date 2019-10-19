@@ -10,8 +10,11 @@ import org.springframework.stereotype.Repository;
 public interface UserDao {
 
     @Insert("insert into user(username,password) values (#{username} , #{password})")
-    int add(User user);
+    int AddUser(User user);
 
     @Select("select * from user where username = #{username}")
-    User tao(String username); // 查找指定用户
+    User FindUser(String username); // 是否有指定用户 最多只能查到一个
+
+    @Select("select * from user where username = #{username} and password = #{password} ")
+    User CheckUser(User user);   // 检查账号密码是否正确
 }

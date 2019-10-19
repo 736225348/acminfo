@@ -22,14 +22,12 @@ public class Main {
 
     @Test
     public void main1() throws Exception {
-        userDao.tao("123456");
 
 
 //        InputStream resourceAsStream = Resources.getResourceAsStream("SqlMapConfig.xml");
 //
 //        SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
 //
-
 
 
 //

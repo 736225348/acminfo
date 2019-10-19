@@ -17,13 +17,12 @@
     <!--    配置视图适配器-->
     <bean id="internalResourceViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/views/"></property>
-        <property name="suffix" value=".jsp"></property>
+        <property name="prefix" value="/view/"></property>
+        <property name="suffix" value=".html"></property>
     </bean>
     <mvc:annotation-driven/>
 
     <!--    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>-->
-    <!--    <mvc:resources mapping="/images/**" location="/img/"></mvc:resources>-->
-    <!--    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>-->
+    <!--    <mvc:resources mapping="/WEB-INF/view/show/" location="/WEB-INF/view/show/**"/>-->
 
 </beans>
