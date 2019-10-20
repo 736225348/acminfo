@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public interface UserService {
     int AddUser(User user);
 
-    Boolean FindUser(String username);
+
 
     User CheckUser(User user);
 }

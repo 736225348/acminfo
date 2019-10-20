@@ -31,17 +31,6 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public Boolean FindUser(String username) {
-        User user = userDao.FindUser(username);
-        if (user == null) {
-            return false;
-        } else {
-            return true;
-
-        }
-
-    }
 
     @Override
     public User CheckUser(User user) {

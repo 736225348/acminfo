@@ -14,8 +14,7 @@ public interface UserDao {
      * @param user
      * @return
      */
-    @Insert("@Insert(\"insert into user values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)\")\n" +
-            "    public void insert(Integer userID, Integer playerID, String username, String password, String eml, String tel, String idCard, String uName, Integer grade, String sNumber, String tNumber, String photo, String joinDate, Integer sitNumber, String tSize, String remark, String info);")
+    @Insert("insert into user(username,password,eml,tel,idCard,info,uName,grade,sNumber,tNumber,photo,sitNumber,tSize,remark) values(#{username},#{password},#{eml},#{tel},#{idCard},#{info},#{uName},#{grade},#{sNumber},#{tNumber},#{photo},#{sitNumber},#{tSize},#{remark})")
     int AddUser(User user);
 
     /**
