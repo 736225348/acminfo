@@ -13,10 +13,22 @@ public class UserServiceImpl implements UserService {
     @Resource(name = "UserDao")
     UserDao userDao;
 
-    //JDBC  --->
+    /**
+     * 插入一条用户信息 插入错误返回0
+     *
+     * @param user
+     * @return
+     */
     public int AddUser(User user) {
-        int a = userDao.AddUser(user);
-        return a;
+        User people = userDao.FindUser(user.getUsername());
+        if (people == null) {
+            int sum = userDao.AddUser(user);
+            return sum;
+        } else {
+            return 0;
+
+        }
+
     }
 
     @Override
@@ -32,16 +44,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean CheckUser(User user) {
+    public User CheckUser(User user) {
         User u_ser = userDao.CheckUser(user);
-        if (u_ser == null) {
-            return false;
-        } else {
-            return true;
-
-        }
-
-
+        return u_ser;
     }
 
 

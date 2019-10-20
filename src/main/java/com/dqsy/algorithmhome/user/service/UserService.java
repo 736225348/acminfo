@@ -9,5 +9,5 @@ public interface UserService {
 
     Boolean FindUser(String username);
 
-    Boolean CheckUser(User user);
+    User CheckUser(User user);
 }
