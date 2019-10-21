@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: "testInfo",
+                success: function (data) {
+                    alert(data.password);
+                    var x = data.username;
+                    console.log(x);
+                    // $.each(x, function(i, n) {
+                    // 	alert(n);
+                    // })
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+</body>
+</html>

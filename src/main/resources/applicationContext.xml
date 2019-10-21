@@ -15,9 +15,7 @@
     <context:component-scan base-package="com.dqsy.algorithmhome.user">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
-
     <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
-
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"
     >
         <property name="driverClassName" value="${jdbc.driver}"/>
@@ -25,12 +23,10 @@
         <property name="username" value="${jdbc.username}"/>
         <property name="password" value="${jdbc.password}"/>
     </bean>
-
     <!--     配置 sqlSessionFactory 工厂-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
-
     <!--    配置接口所在地-->
     <bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.dqsy.algorithmhome.user.dao"></property>

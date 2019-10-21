@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax({
+                url: "testInfo",
+                success: function (data) {
+                    alert(data.password);
+                    var x = data.username;
+                    console.log(x);
+                }
+            })
+        })
+    </script>
 </head>
-
-<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-<script>
-
-</script>
-
 <body>
-
+<a href="outLogin">退出登陆</a>
 </body>
 </html>
