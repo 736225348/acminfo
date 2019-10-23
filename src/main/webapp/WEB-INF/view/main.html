@@ -6,20 +6,36 @@
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
         $(function () {
-            $.ajax({
-                url: "testInfo",
-                success: function (data) {
-                    alert(data.password);
-                    var x = data.username;
-                    console.log(x);
-                    // $.each(x, function(i, n) {
-                    // 	alert(n);
-                    // })
+            $.post("viewData", function (data) {
+                showData(data)
+            });
+            //展示数据
+            function showData(data) {
+                var str = "";//定义用于拼接的字符串
+                for (var i = 0; i < data.length; i++) {
+                    //拼接表格的行和列
+                    str = "<tr><td>" + data[i].username + "</td><td>" + data[i].uName + "<td>" +
+                        data[i].sNumber +
+                        "</td><td><button>同意</button><button>忽略</button></td>" + "</td> </tr>";
+                    //追加到table中
+                    $("#tab").append(str);
                 }
-            })
+            }
         })
+
     </script>
 </head>
 <body>
+<h1>这是个什么也没有的网页</h1>
+<a href="outLogin">退出登陆</a>
+<table border="1" id="tab">
+    <tr>
+        <th>用户名</th>
+        <th>姓名</th>
+        <th>学号</th>
+        <th>操作</th>
+    </tr>
+</table>
+
 </body>
 </html>

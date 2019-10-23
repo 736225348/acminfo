@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository("UserDao")
 public interface UserDao {
     /**
@@ -35,5 +37,6 @@ public interface UserDao {
     @Select("select * from user where username = #{username} and password = #{password} ")
     User CheckUser(User user);   // 检查账号密码是否正确
 
-
+    @Select("select * from user where playerID = #{playerID}")
+    List<User> ViewRough(User user);
 }

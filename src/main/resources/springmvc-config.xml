@@ -14,7 +14,23 @@
             base-package="com.dqsy.algorithmhome.user">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
+    <context:property-placeholder location="classpath:mail.properties"/>
     <!--    配置视图适配器-->
+
+    <bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="${mail.smtp.host}"/>
+        <property name="username" value="${mail.smtp.username}"/>
+        <property name="password" value="${mail.smtp.password}"/>
+        <property name="defaultEncoding" value="${mail.smtp.defaultEncoding}"/>
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">${mail.smtp.auth}</prop>
+                <prop key="mail.smtp.timeout">${mail.smtp.timeout}</prop>
+            </props>
+        </property>
+    </bean>
+
+
     <bean id="internalResourceViewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"></property>
@@ -27,6 +43,14 @@
         <!--文件上传最大值5MB,5*1024*1024-->
         <property name="maxUploadSize" value="5242880"></property>
     </bean>
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/index"/>
+            <mvc:exclude-mapping path="/register"/>
+            <bean class="com.dqsy.algorithmhome.user.intercepytor.loginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <mvc:annotation-driven/>
     <mvc:resources location="/WEB-INF/view/" mapping="/view/**"/>
     <!--    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>-->

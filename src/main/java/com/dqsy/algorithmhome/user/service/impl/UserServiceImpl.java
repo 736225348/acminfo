@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import javax.annotation.Resources;
+import java.util.List;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
@@ -29,6 +30,12 @@ public class UserServiceImpl implements UserService {
 
         }
 
+    }
+
+    @Override
+    public List<User> ViewRough(User user) {
+        List<User> users = userDao.ViewRough(user);
+        return users;
     }
 
 

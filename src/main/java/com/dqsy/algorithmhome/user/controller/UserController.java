@@ -54,7 +54,7 @@ public class UserController {
      * @return
      */
     @ResponseBody
-    @PostMapping("/proving")
+    @PostMapping("/index")
     public Boolean proving(User user, HttpServletRequest request) {
         User u_ser = userService.CheckUser(user);
         HttpSession session = request.getSession();
@@ -68,8 +68,6 @@ public class UserController {
             return true;
         }
     }
-
-
     /**
      * 文集按上传，暂时没有用上
      *
@@ -107,12 +105,29 @@ public class UserController {
 
     }
 
+    /**
+     * 展示数据
+     *
+     * @return
+     */
+    @ResponseBody()
+    @PostMapping("/viewData")
+    public List<User> viewData() {
+        User user = new User();
+        user.setPlayerID(3); // 展示用户等级为三的用户
+        List<User> users = userService.ViewRough(user);
+        return users;
+
+    }
+
+
     //  注册页面
     @GetMapping("register")
     public String register() {
         return "register";
 
     }
+
 
     // 验证注册 成功就返回true 失败就返回 fa
     @ResponseBody
@@ -128,6 +143,8 @@ public class UserController {
         }
     }
 
+
+    @GetMapping("outLogin")
     public String outLogin(SessionStatus sessionStatus) {
         sessionStatus.setComplete();
         return "index";

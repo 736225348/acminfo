@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    function e() {
+        var form = document.getElementById("for1");
+        var data = new FormData(form); // FormData 封装表单数据 //
+        $.ajax({
+            url: 'send',
+            type: 'POST',
+            data: data,                    // 上传formdata封装的数据
+            dataType: 'JSON',
+            cache: false,                      // 不缓存
+            processData: false,                // jQuery不要去处理发送的数据
+            contentType: false,                // jQuery不要去设置Content-Type请求头
+            success: function (data) {           //成功回调
+                alert(data.cause);
+
+
+            }
+        });
+    }
+</script>
+
+<body>
+<form id="for1">
+    账号<input name="name"></form>
+<input type="button" value="点击">
+</form>
+<button onclick="e()"></button>
+</body>
+</html>

@@ -2,6 +2,10 @@ package com.dqsy.algorithmhome.user.domain;
 
 public class judge {
 
+    public judge() {
+
+    }
+
     public Boolean getCause() {
         return cause;
     }
