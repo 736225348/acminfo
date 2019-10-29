@@ -31,12 +31,10 @@ public class Main {
         String from = "a736225348@163.com";
         //收件人电子邮箱
         String to = "736225348@qq.com";
-
         //也可以以此来获得系统属性：Properties properties = System.getProperties();
         Properties properties = new Properties();
         // 设置邮件服务器主机名
         properties.setProperty("mail.host", "smtp.163.com");
-
         //这行代码是我在遇到554返回码时加上的，同时也将发送内容中的“test，测试”等关键字去掉了
         //在163邮箱的白名单也设置了本地ip，后来注释掉这行代码发送消息也没有报错了
         //properties.setProperty("mail.smtp.localhost", "127.0.0.1");

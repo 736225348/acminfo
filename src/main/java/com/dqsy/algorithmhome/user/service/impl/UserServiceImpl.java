@@ -21,13 +21,18 @@ public class UserServiceImpl implements UserService {
      * @return
      */
     public int AddUser(User user) {
-        User people = userDao.FindUser(user.getUsername());
-        if (people == null) {
+        User name_per = userDao.FindUser(user.getUsername());
+        User eml_per = userDao.FindEml(user.getEml());
+        if (name_per == null && eml_per == null) {
             int sum = userDao.AddUser(user);
-            return sum;
+            //正确返回 1
+            return sum; // 1
         } else {
-            return 0;
-
+            if (name_per == null) { // 邮箱重复
+                return 0;
+            } else {
+                return 2; //用户名重复
+            }
         }
 
     }
@@ -43,6 +48,12 @@ public class UserServiceImpl implements UserService {
     public User CheckUser(User user) {
         User u_ser = userDao.CheckUser(user);
         return u_ser;
+    }
+
+    @Override
+    public int updateUser(User user) {
+        int i = userDao.updateUser(user);
+        return i;
     }
 
 

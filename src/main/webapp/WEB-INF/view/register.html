@@ -10,7 +10,7 @@
         var form = document.getElementById("form_re");
         var data = new FormData(form); // FormData 封装表单数据 //
         $.ajax({
-            url: 'registerUser',
+            url: 'register',
             type: 'POST',
             data: data,                    // 上传formdata封装的数据
             dataType: 'JSON',
@@ -18,14 +18,7 @@
             processData: false,                // jQuery不要去处理发送的数据
             contentType: false,                // jQuery不要去设置Content-Type请求头
             success: function (data) {           //成功回调
-                if (data.cause == true) {
-                    alert("恭喜你注册成功，等待教师或管理员审核通过~~~~");
-
-                } else {
-                    alert("用户名已被占用");
-                }
-
-
+                alert(data.cause);
             }
         });
     }
@@ -42,18 +35,7 @@
     <!--    照片<input type="file" name="grade" multiple="multiple"><br>-->
     <br>
 </form>
-
 <button onclick="e()">注册</button>
 
-<br> <br> <br>
-<h2>教师注册</h2>
-用户名<input type="text"> <br>
-密码<input type="password"> <br>
-确认密码<input type="password"> <br>
-姓名<input type="text"> <br>
-邮箱<input type="text"> <br>
-院系<input type="text"> <br>
-工号 <input type="text"> <br>
-<button>注册</button>
 </body>
 </html>

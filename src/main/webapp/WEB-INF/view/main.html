@@ -5,10 +5,59 @@
     <title></title>
     <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
+        $.ajax({
+            url: 'send',
+            type: 'POST',
+            data: data,                    // 上传formdata封装的数据
+            dataType: 'JSON',
+            cache: false,                      // 不缓存
+            processData: false,                // jQuery不要去处理发送的数据
+            contentType: false,                // jQuery不要去设置Content-Type请求头
+            success: function (data) {           //成功回调
+                alert(data.cause);
+            }
+        });
+
+
+        function x() {
+            var form = document.getElementById("xin");
+            var data = new FormData(form); // FormData 封装表单数据 //
+            $.ajax({
+                url: 'updateUser',
+                type: 'POST',
+                data: data,                    // 上传formdata封装的数据
+                dataType: 'JSON',
+                cache: false,                      // 不缓存
+                processData: false,                // jQuery不要去处理发送的数据
+                contentType: false,                // jQuery不要去设置Content-Type请求头
+                success: function (data) {           //成功回调
+                    alert(data.cause);
+                }
+            });
+        }
+
+        function e() {
+            var form = document.getElementById("for1");
+            var data = new FormData(form); // FormData 封装表单数据 //
+            $.ajax({
+                url: 'send',
+                type: 'POST',
+                data: data,                    // 上传formdata封装的数据
+                dataType: 'JSON',
+                cache: false,                      // 不缓存
+                processData: false,                // jQuery不要去处理发送的数据
+                contentType: false,                // jQuery不要去设置Content-Type请求头
+                success: function (data) {           //成功回调
+                    alert(data.cause);
+                }
+            });
+        }
+
         $(function () {
             $.post("viewData", function (data) {
                 showData(data)
             });
+
             //展示数据
             function showData(data) {
                 var str = "";//定义用于拼接的字符串
@@ -26,7 +75,22 @@
     </script>
 </head>
 <body>
-<h1>这是个什么也没有的网页</h1>
+<!--电话   座位号  T恤尺码  个人简介-->
+邮箱
+<form id="for1">
+    账号<input name="name" type="email"></form>
+</form>
+<button onclick="e()">发送Email</button>
+<h1>修改个人信息</h1>
+<hr>
+<form id="xin">
+    电话 <input type="text" name="tel"><br>
+    座位号<input type="text" name="sitNumber"><br>
+    T恤尺码 <input type="text" name="tSiz.e"><br>
+    个人简介 <input type="text" name="info"><br>
+</form>
+<button onclick="x()">修改</button>
+<hr>
 <a href="outLogin">退出登陆</a>
 <table border="1" id="tab">
     <tr>
@@ -36,6 +100,5 @@
         <th>操作</th>
     </tr>
 </table>
-
 </body>
 </html>

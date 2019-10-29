@@ -2,21 +2,17 @@ package com.dqsy.algorithmhome.user.domain;
 
 public class judge {
 
-    public judge() {
+    String cause;
 
+    public judge(String cause) {
+        this.cause = cause;
     }
 
-    public Boolean getCause() {
+    public String getCause() {
         return cause;
     }
 
-    public void setCause(Boolean cause) {
+    public void setCause(String cause) {
         this.cause = cause;
     }
-
-    public judge(Boolean cause) {
-        this.cause = cause;
-    }
-
-    Boolean cause;
 }

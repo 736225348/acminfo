@@ -8,6 +8,8 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 /**
  * Author: 小莫
  * Date: 2018-11-12 18:10
@@ -20,7 +22,6 @@ public class SenEmailController {
     public String aaa() {
         return "sends";
     }
-
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -38,14 +39,19 @@ public class SenEmailController {
         //收件人的邮箱地址
         message.setTo(name);
         //邮件主题
+        String uuid = UUID.randomUUID().toString().replace("-", "").toLowerCase();
+
         message.setSubject("大庆师范学院ACM406实验室");
         //邮件内容
-        message.setText("收到的邮件内容：恭喜你以被录取！！！");
+        message.setText("收到的邮件内容：恭喜你被翔泽想了一下 （密令:"+uuid+")");
         //发送邮件
-        javaMailSender.send(message);
-        System.out.println(1);
-        judge judge = new judge(1 == 1);
-
-        return judge;
+        try {
+            javaMailSender.send(message);
+            judge judge = new judge("发送成功");
+            return judge;
+        } catch (Exception e) {
+            judge judge = new judge("发送失败");
+            return judge;
+        }
     }
 }

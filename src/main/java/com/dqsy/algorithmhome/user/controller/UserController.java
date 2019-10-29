@@ -18,7 +18,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-
 @SessionAttributes("ayUser")
 @Controller
 public class UserController {
@@ -54,7 +53,7 @@ public class UserController {
      * @return
      */
     @ResponseBody
-    @PostMapping("/index")
+    @PostMapping("/index") // 不被拦截的主要原因 就是拦截 index
     public Boolean proving(User user, HttpServletRequest request) {
         User u_ser = userService.CheckUser(user);
         HttpSession session = request.getSession();
@@ -68,6 +67,29 @@ public class UserController {
             return true;
         }
     }
+
+
+    /**
+     *
+     */
+    @ResponseBody
+    @PostMapping("/updateUser")
+    public judge updateUser(User user, @SessionAttribute User ayUser) {
+        user.setUserID(ayUser.getUserID());
+        int i = userService.updateUser(user);
+
+        if (i == 1) {
+            return new judge("修改成功");
+
+        } else {
+
+            return new judge("修改失败");
+
+        }
+
+    }
+
+
     /**
      * 文集按上传，暂时没有用上
      *
@@ -76,14 +98,17 @@ public class UserController {
      * @return
      * @throws IOException
      */
-    @PostMapping("fileup")
-    public String fileup(HttpServletRequest request, @RequestParam("fileup") List<MultipartFile> fileup) throws IOException {
+    ///root/apache-tomcat-9.0.27/webapps/AlgorithmHome/upload/
+    @PostMapping("fileup") // 上传文件D:\IDEA\apache-tomcat-9.0.12\webapps\ROOT\upload\到目录下
+    public String FileUp(HttpServletRequest request, @RequestParam("fileup") List<MultipartFile> fileup, @SessionAttribute User ayUser) throws IOException {
         //上传文件路径
         if (!fileup.isEmpty() && fileup.size() > 0) {
             for (MultipartFile file : fileup) {
-                String org = file.getOriginalFilename();
+//                String org = file.getOriginalFilename();
+                String username = ayUser.getUsername();
+                String org = username;
                 String dirPath = request.getServletContext().getRealPath("/upload/");
-                System.out.println(dirPath);
+                System.out.println(dirPath); // 打因出路径
                 File filepath = new File(dirPath);
                 if (!filepath.exists()) {
                     filepath.mkdirs();
@@ -128,17 +153,18 @@ public class UserController {
 
     }
 
-
-    // 验证注册 成功就返回true 失败就返回 fa
+    // 验证注册
     @ResponseBody
-    @PostMapping("registerUser")
+    @PostMapping("register")
     public judge registerUser(User user) {
         System.out.println(user);
         int i = userService.AddUser(user);
-        if (i == 0) {
-            return new judge(false);
+        if (i == 2) {
+            return new judge("用户名已被注册");
+        } else if (i == 1) {
+            return new judge("注册信息已成功，等待教师或管理员的审核");
         } else {
-            return new judge(true);
+            return new judge("邮箱已被使用");
 
         }
     }
