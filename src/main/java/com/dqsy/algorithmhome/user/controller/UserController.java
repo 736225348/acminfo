@@ -1,19 +1,17 @@
 package com.dqsy.algorithmhome.user.controller;
 
+import com.dqsy.algorithmhome.user.domain.EasyGrid;
 import com.dqsy.algorithmhome.user.domain.User;
 import com.dqsy.algorithmhome.user.domain.judge;
 import com.dqsy.algorithmhome.user.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.xml.transform.Source;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +27,15 @@ public class UserController {
     @GetMapping("/index")
     public String login() {
         return "index";
+
     }
+
+    @GetMapping("outLogin")
+    public String outLogin(SessionStatus sessionStatus) {
+        sessionStatus.setComplete(); // 清空
+        return "index";
+    }
+
 
     //转到 主页面
     @GetMapping("/main")
@@ -55,8 +61,10 @@ public class UserController {
     @ResponseBody
     @PostMapping("/index") // 不被拦截的主要原因 就是拦截 index
     public Boolean proving(User user, HttpServletRequest request) {
+
         User u_ser = userService.CheckUser(user);
         HttpSession session = request.getSession();
+
         if (u_ser == null || u_ser.getPlayerID() == 3) {
 //           表示没有此账号
             return false;
@@ -67,7 +75,6 @@ public class UserController {
             return true;
         }
     }
-
 
     /**
      *
@@ -89,6 +96,16 @@ public class UserController {
 
     }
 
+    @ResponseBody
+    @GetMapping("/azcs")
+    public User azcs() {
+        User user = new User();
+        user.setUsername("root");
+        user.setPassword("12345");
+        User user1 = userService.CheckUser(user);
+        return user1;
+
+    }
 
     /**
      * 文集按上传，暂时没有用上
@@ -98,23 +115,22 @@ public class UserController {
      * @return
      * @throws IOException
      */
-    ///root/apache-tomcat-9.0.27/webapps/AlgorithmHome/upload/
-    @PostMapping("fileup") // 上传文件D:\IDEA\apache-tomcat-9.0.12\webapps\ROOT\upload\到目录下
+
+    @PostMapping("fileup")
     public String FileUp(HttpServletRequest request, @RequestParam("fileup") List<MultipartFile> fileup, @SessionAttribute User ayUser) throws IOException {
         //上传文件路径
         if (!fileup.isEmpty() && fileup.size() > 0) {
             for (MultipartFile file : fileup) {
-//                String org = file.getOriginalFilename();
-                String username = ayUser.getUsername();
-                String org = username;
+                String org = file.getOriginalFilename();
+                String[] split = org.split("\\.");
+                String username = ayUser.getUsername() + "." + split[1];
                 String dirPath = request.getServletContext().getRealPath("/upload/");
-                System.out.println(dirPath); // 打因出路径
                 File filepath = new File(dirPath);
                 if (!filepath.exists()) {
                     filepath.mkdirs();
                 }
                 try {
-                    file.transferTo(new File(dirPath + org));
+                    file.transferTo(new File(dirPath + username));
                 } catch (Exception e) {
 
                 }
@@ -137,12 +153,11 @@ public class UserController {
      */
     @ResponseBody()
     @PostMapping("/viewData")
-    public List<User> viewData() {
+    public EasyGrid viewData(int page, int limit) {
         User user = new User();
         user.setPlayerID(3); // 展示用户等级为三的用户
-        List<User> users = userService.ViewRough(user);
+        EasyGrid users = userService.ViewRough(user, page, limit);
         return users;
-
     }
 
 
@@ -169,11 +184,5 @@ public class UserController {
         }
     }
 
-
-    @GetMapping("outLogin")
-    public String outLogin(SessionStatus sessionStatus) {
-        sessionStatus.setComplete();
-        return "index";
-    }
 
 }

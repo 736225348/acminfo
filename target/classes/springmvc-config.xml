@@ -46,12 +46,16 @@
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/index"/>
             <mvc:exclude-mapping path="/register"/>
+            <mvc:exclude-mapping path="/azcs"/>
             <bean class="com.dqsy.algorithmhome.user.intercepytor.loginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>
     <mvc:annotation-driven/>
     <mvc:resources location="/WEB-INF/view/" mapping="/view/**"/>
-    <!--    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>-->
-    <!--    <mvc:resources mapping="/WEB-INF/view/show/" location="/WEB-INF/view/show/**"/>-->
+    <mvc:resources location="/layui/css/" mapping="/layui/css/**"/>
+    <mvc:resources location="/layui/font/" mapping="/layui/font/**"/>
+    <mvc:resources location="/layui/images/" mapping="/layui/images/**"/>
+    <mvc:resources location="/layui/lay/" mapping="/layui/lay/**"/>
+
 
 </beans>

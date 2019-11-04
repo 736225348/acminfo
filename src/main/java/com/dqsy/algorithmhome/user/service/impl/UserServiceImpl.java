@@ -1,8 +1,13 @@
 package com.dqsy.algorithmhome.user.service.impl;
 
 import com.dqsy.algorithmhome.user.dao.UserDao;
+import com.dqsy.algorithmhome.user.domain.EasyGrid;
 import com.dqsy.algorithmhome.user.domain.User;
 import com.dqsy.algorithmhome.user.service.UserService;
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -11,7 +16,8 @@ import java.util.List;
 
 @Service("UserService")
 public class UserServiceImpl implements UserService {
-    @Resource(name = "UserDao")
+    //    @Resource(name = "UserDao")
+    @Autowired
     UserDao userDao;
 
     /**
@@ -38,11 +44,16 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> ViewRough(User user) {
+    public EasyGrid ViewRough(User user, int pages, int rows) {//第几页 pages   rows 一共有几页
+        PageHelper.startPage(pages, rows);
         List<User> users = userDao.ViewRough(user);
-        return users;
-    }
+        PageInfo<User> userPageInfo = new PageInfo<User>(users);
+        EasyGrid easyGrid = new EasyGrid();
+        easyGrid.setTotal((int) userPageInfo.getTotal());
+        easyGrid.setRows(users);
+        return easyGrid;
 
+    }
 
     @Override
     public User CheckUser(User user) {

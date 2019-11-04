@@ -2,7 +2,9 @@
         "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
         "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
-
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
@@ -21,7 +23,6 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.jpg</url-pattern>
     </servlet-mapping>
-
 
     <display-name>Archetype Created Web Application</display-name>
     <listener>
@@ -46,7 +47,6 @@
         <servlet-name>dispatcherservlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
     <filter>
         <filter-name>characterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

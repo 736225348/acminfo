@@ -43,7 +43,7 @@ public class SenEmailController {
 
         message.setSubject("大庆师范学院ACM406实验室");
         //邮件内容
-        message.setText("收到的邮件内容：恭喜你被翔泽想了一下 （密令:"+uuid+")");
+        message.setText("收到的邮件内容：恭喜你被翔泽想了一下 （密令:" + uuid + ")");
         //发送邮件
         try {
             javaMailSender.send(message);

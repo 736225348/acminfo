@@ -1,6 +1,7 @@
 package com;
 
 
+import com.alibaba.druid.sql.visitor.functions.If;
 import com.dqsy.algorithmhome.user.dao.UserDao;
 import com.dqsy.algorithmhome.user.domain.User;
 import com.dqsy.algorithmhome.user.service.UserService;
@@ -13,9 +14,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import javax.annotation.Resource;
 import java.io.InputStream;
-
+import java.security.Signature;
 import java.util.Properties;
-
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -25,48 +25,78 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 public class Main {
-
     public static void main(String[] args) {
-        //发件人电子邮箱
-        String from = "a736225348@163.com";
-        //收件人电子邮箱
-        String to = "736225348@qq.com";
-        //也可以以此来获得系统属性：Properties properties = System.getProperties();
-        Properties properties = new Properties();
-        // 设置邮件服务器主机名
-        properties.setProperty("mail.host", "smtp.163.com");
-        //这行代码是我在遇到554返回码时加上的，同时也将发送内容中的“test，测试”等关键字去掉了
-        //在163邮箱的白名单也设置了本地ip，后来注释掉这行代码发送消息也没有报错了
-        //properties.setProperty("mail.smtp.localhost", "127.0.0.1");
-
-        // 发送邮件协议名称
-        properties.setProperty("mail.transport.protocol", "smtp");
-        //这行代码网上有说必须要将后面设为“true”，经过亲测，后面改为“false”也不会报错
-        properties.setProperty("mail.smtp.auth", "true");
-        //debug时使用，可以看到发送的状态，十分有用
-        properties.setProperty("mail.debug", "true");
-        //获取默认的session
-        Session session = Session.getDefaultInstance(properties);
-
-        try {
-            //创建一个默认的Message对象
-            Message message = new MimeMessage(session);
-            //设置发件人信息
-            message.setFrom(new InternetAddress(from));
-            //设置邮件的标题
-            message.setSubject("新势!");
-            //设置邮件内容
-            message.setText("收到请回复");
-            Transport transport = session.getTransport();
-            // 连接邮件服务器
-            transport.connect(from, "gxw948192694");
-            //发送消息，多个收件人后面地址填上多个
-            transport.sendMessage(message, new Address[]{new InternetAddress(to)});
-            transport.close();
-            System.out.println("Sent message successfully....");
-        } catch (MessagingException mex) {
-            System.out.println("Error: unable to send message....");
-            mex.printStackTrace();
-        }
+        Singleton1 singleton1 = new Singleton1();
+        System.out.println(Singleton1.getSingleton1());
+        System.out.println(Singleton1.getSingleton1());
     }
 }
+
+//
+class Singleton1 { //饿汉模式1
+    private static final Singleton1 singlseton1 = new Singleton1();
+
+    public static Singleton1 getSingleton1() {
+        return singlseton1;
+    }
+}
+
+class Singleton2 { //懒汉模式  （存在线程安全问题非正规写法）
+    private static Singleton2 singleton2 = null;
+
+    private Singleton2() {
+    }
+
+
+    public static Singleton2 getSingleton2() {
+        if (singleton2 == null) {
+            singleton2 = new Singleton2();
+            return singleton2;
+        } else {
+            return singleton2;
+        }
+    }
+
+
+}
+//synchronized
+
+class Singleton3 { //懒汉模式    synchronized 加入synchronized 锁
+    private static Singleton3 singleton3 = null;
+
+    private Singleton3() {
+    }
+
+    public static synchronized Singleton3 getSingleton3() { //
+        if (singleton3 == null) {
+            singleton3 = new Singleton3(); //
+            return singleton3;
+        } else {
+            return singleton3; //
+        }
+    }
+
+
+}
+
+class Singleton4 {   // 懒汉模式   优化
+    private static Singleton4 singleton4 = null;
+
+    private Singleton4() {
+    }
+
+    public static Singleton4 getSingleton4() {
+
+        if (singleton4 == null) {//
+            synchronized (Singleton4.class) { //
+                if (singleton4 == null) {
+                    singleton4 = new Singleton4();
+                    return singleton4;
+                }
+            }
+        }
+        return singleton4;
+    }
+}
+
+

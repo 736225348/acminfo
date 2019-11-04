@@ -2,103 +2,150 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title></title>
-    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
-    <script type="text/javascript">
-        $.ajax({
-            url: 'send',
-            type: 'POST',
-            data: data,                    // 上传formdata封装的数据
-            dataType: 'JSON',
-            cache: false,                      // 不缓存
-            processData: false,                // jQuery不要去处理发送的数据
-            contentType: false,                // jQuery不要去设置Content-Type请求头
-            success: function (data) {           //成功回调
-                alert(data.cause);
-            }
-        });
-
-
-        function x() {
-            var form = document.getElementById("xin");
-            var data = new FormData(form); // FormData 封装表单数据 //
-            $.ajax({
-                url: 'updateUser',
-                type: 'POST',
-                data: data,                    // 上传formdata封装的数据
-                dataType: 'JSON',
-                cache: false,                      // 不缓存
-                processData: false,                // jQuery不要去处理发送的数据
-                contentType: false,                // jQuery不要去设置Content-Type请求头
-                success: function (data) {           //成功回调
-                    alert(data.cause);
-                }
-            });
-        }
-
-        function e() {
-            var form = document.getElementById("for1");
-            var data = new FormData(form); // FormData 封装表单数据 //
-            $.ajax({
-                url: 'send',
-                type: 'POST',
-                data: data,                    // 上传formdata封装的数据
-                dataType: 'JSON',
-                cache: false,                      // 不缓存
-                processData: false,                // jQuery不要去处理发送的数据
-                contentType: false,                // jQuery不要去设置Content-Type请求头
-                success: function (data) {           //成功回调
-                    alert(data.cause);
-                }
-            });
-        }
-
-        $(function () {
-            $.post("viewData", function (data) {
-                showData(data)
-            });
-
-            //展示数据
-            function showData(data) {
-                var str = "";//定义用于拼接的字符串
-                for (var i = 0; i < data.length; i++) {
-                    //拼接表格的行和列
-                    str = "<tr><td>" + data[i].username + "</td><td>" + data[i].uName + "<td>" +
-                        data[i].sNumber +
-                        "</td><td><button>同意</button><button>忽略</button></td>" + "</td> </tr>";
-                    //追加到table中
-                    $("#tab").append(str);
-                }
-            }
-        })
-
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>ACM竞赛管理系统</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <!-- <script src="layui/layui.js" type="text/javascript" charset="utf-8"></script> -->
 </head>
-<body>
-<!--电话   座位号  T恤尺码  个人简介-->
-邮箱
-<form id="for1">
-    账号<input name="name" type="email"></form>
-</form>
-<button onclick="e()">发送Email</button>
-<h1>修改个人信息</h1>
-<hr>
-<form id="xin">
-    电话 <input type="text" name="tel"><br>
-    座位号<input type="text" name="sitNumber"><br>
-    T恤尺码 <input type="text" name="tSiz.e"><br>
-    个人简介 <input type="text" name="info"><br>
-</form>
-<button onclick="x()">修改</button>
-<hr>
-<a href="outLogin">退出登陆</a>
-<table border="1" id="tab">
-    <tr>
-        <th>用户名</th>
-        <th>姓名</th>
-        <th>学号</th>
-        <th>操作</th>
-    </tr>
-</table>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <div class="layui-logo">大庆师范程序设计信息站</div>
+        <ul class="layui-nav layui-layout-right">
+            <li class="layui-nav-item"><a href="javascript:;"> <img src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+            </a>
+                <dl class="layui-nav-child">
+                    <dd>
+                        <a href="">基本资料</a>
+                    </dd>
+                    <dd>
+                        <a href="">安全设置</a>
+                    </dd>
+                </dl>
+            </li>
+            <li class="layui-nav-item"><a href="outLogin">退出登陆</a></li>
+        </ul>
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <ul class="layui-nav layui-nav-tree" lay-filter="test">
+                <li class="layui-nav-item layui-nav-itemed"><a href="">个人信息</a></li>
+                <li class="layui-nav-item"><a class="" href="javascript:;">教师管理</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-href="teacherList">教师列表</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-href="load">待审核</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a class="" href="javascript:;">队员管理</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-href="teacherList">队员列表</a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-href="load">待审核</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a class="" href="javascript:;">竞赛管理</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-href="teacherList">竞赛列表</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a class="" href="javascript:;">队伍管理</a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;">队伍列表</a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item"><a href="javascript:;">角色管理</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 15px;" id="content">内容主体区域</div>
+    </div>
+</div>
+<script src="layui/layui.js"></script>
+<!-- <script src="js/index.js" type="text/javascript" charset="utf-8"></script> -->
+<script type="text/javascript">
+    layui.use(['element', 'jquery', 'table'], function () {
+        var element = layui.element;
+        var table = layui.table;
+        var $ = layui.jquery;
+        // $.ajax({
+        // url: 'getPower',
+        // success: function(data) {
+        // JSON.parse(data);
+        // }
+        // })
+        function loaded(url) {
+            $("#content").html("<table id='demoKai' lay-filter='test'>");
+        }
+
+        $("a").click(function () {
+            var href = $(this).data("href");
+            // 教师列表
+            if (href == 'teacherList') {
+                var url = "userList.html";
+                loaded(url);
+                console.log('aaaa');
+                table.render({
+                    elem: "#demoKai",
+                    url: 'viewData',
+                    toolbar: 'default',
+                    method: 'post',
+                    parseData: function (res) {
+                        return {
+                            "code": 0,
+                            "msg": "",
+                            "count": res.total,
+                            "data": res.rows
+                        }
+                    },
+                    title: '教师列表',
+                    loading: true,
+                    page: true,
+                    cols: [
+                        [{
+                            type: 'checkbox'
+                        }, {
+                            title: 'id',
+                            type: 'numbers'
+                        }, {
+                            field: 'uName',
+                            title: '姓名',
+                            width: '10%'
+                        }, {
+                            field: 'tNumber',
+                            title: '工号'
+                        }, {
+                            field: 'tSize',
+                            title: 'T恤尺码'
+                        }, {
+                            field: 'tel',
+                            title: '电话'
+                        }, {
+                            field: 'eml',
+                            title: '邮箱'
+                        }]
+                    ]
+
+                });
+            }
+
+        });
+    });
+</script>
 </body>
 </html>
