@@ -81,10 +81,4 @@ public interface UserDao {
     int updateUserAll(User user);
 
 
-
-
-
-
-
-
 }

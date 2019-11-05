@@ -36,17 +36,14 @@ public class AcmUserController {
         acmstu.setSum(acmService.getHTMLSrc(acmstu.getAccount()));
         proving addstu = acmService.addstu(acmstu);
         System.out.println(addstu);
-
-
         return addstu;
     }
 
-
     @ResponseBody
-    @PostMapping("/ShowCount")
-    public EasyGrid ShowCount(int pages, int rows) {
-        EasyGrid aaa= acmService.findstuds(pages, rows);
-        return aaa;
+    @GetMapping("/ShowCount")
+    public List<acmstu> ShowCount() {
+        List<acmstu> list = acmService.findstuds();
+        return list;
     }
 
 

@@ -3,7 +3,7 @@ package com.dqsy.algorithmhome.hdoj.domain;
 import javax.xml.crypto.Data;
 import java.util.Date;
 
-public class acmstu {
+public class acmstu implements Comparable<acmstu> {
     String name;
     String classes;
     String account;
@@ -69,5 +69,10 @@ public class acmstu {
 
     public void setStudentID(String studentID) {
         StudentID = studentID;
+    }
+
+    @Override
+    public int compareTo(acmstu o) {
+        return -(this.getSum() - o.getSum());
     }
 }

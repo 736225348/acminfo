@@ -12,7 +12,7 @@ public interface AcmService {
 
     acmstu findstu(String StudentID);
 
-    public EasyGrid findstuds(int pages, int rows);
+    public  List<acmstu> findstuds();
 
     String RefreshData();
 

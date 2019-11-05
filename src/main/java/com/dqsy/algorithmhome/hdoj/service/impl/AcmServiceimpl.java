@@ -16,12 +16,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service("AcmService")
 class AcmServiceimpl implements AcmService {
+
 
     @Resource(name = "AcmDao")
     AcmDao acmDao;
@@ -55,14 +59,11 @@ class AcmServiceimpl implements AcmService {
     }
 
 
-    public EasyGrid findstuds(int pages, int rows) {//第几页 pages   rows 一共有几页
-        PageHelper.startPage(pages, rows);
+    public List<acmstu> findstuds() {//第几页 pages   rows 一共有几页
+
         List<acmstu> findstus = acmDao.findstus();
-        PageInfo<acmstu> userPageInfo = new PageInfo<acmstu>(findstus);
-        EasyGrid easyGrid = new EasyGrid();
-        easyGrid.setTotal((int) userPageInfo.getTotal());
-        easyGrid.setRows(findstus);
-        return easyGrid;
+        Collections.sort(findstus);
+        return findstus;
 
     }
 
