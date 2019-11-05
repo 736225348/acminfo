@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="layui/css/layui.css"/>
+    <style type="text/css">
+        #content {
+            padding: 20px;
+        }
+
+        hr {
+            height: 5px;
+            border-radius: 5px;
+        }
+
+        form {
+            margin: 50px auto;
+        }
+
+        #msg {
+            font-family: "楷体";
+            font-size: 30px;
+            line-height: 40px;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: "楷体";
+            font-size: 60px;
+            line-height: 60px;
+            color: #009688;
+            text-align: center;
+        }
+    </style>
+</head>
+<body class="layui-bg-gray">
+
+<div id="content">
+    <h1>ACM社团信息采集</h1>
+    <hr class="layui-bg-cyan">
+    <div id="formdiv">
+        <form class="layui-form layui-row" lay-filter="frm">
+            <div class="layui-form-item">
+                <label class="layui-form-label">姓名:</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="" value="" name="name" lay-verify="required" autocomplete="off"
+                           placeholder="请输入真实姓名"
+                           class="layui-input"/>
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item">
+                <label class="layui-form-label">班级:</label>
+                <div class="layui-input-inline">
+                    <select name="classes" lay-filter="area">
+                        <option value="1" selected="">19级计类一班</option>
+                        <option value="2">19级计类二班</option>
+                        <option value="3">19级计类三班</option>
+                        <option value="4">19级计类四班</option>
+                        <option value="5">19级计类五班</option>
+                        <option value="6">19级计类六班</option>
+                        <option value="7">19级计类七班</option>
+                        <option value="8">19级计类八班</option>
+                        <option value="9">2018级</option>
+                        <option value="10">2017级</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item">
+                <label class="layui-form-label">学号:</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="StudentID" lay-verify="required|number|StudentIdNumber" autocomplete="off"
+                           class="layui-input">
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item">
+                <label class="layui-form-label">航电用户名:</label>
+                <div class="layui-input-inline">
+                    <input type="text" id="" value="" name="account" lay-verify="required" autocomplete="off"
+                           placeholder="请输入航电OJ登录用户名"
+                           class="layui-input"/>
+                </div>
+            </div>
+            <br>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button type="submit" class="layui-btn" lay-submit="" lay-filter="kai">立即提交</button>
+                    <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    <button type="button" class="layui-btn layui-btn-normal" id="btn5">查看输入样例</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <hr class="layui-bg-cyan">
+    <ul id="msg">
+        <li>欢迎加入ACM俱乐部</li>
+        <li>感谢大家配合我们采集信息</li>
+        <li>请如实填写以上信息</li>
+        <li>希望大家能够坚持学习！</li>
+    </ul>
+</div>
+<script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+    layui.use(['form', 'jquery', 'layer'], function () {
+        var form = layui.form;
+        var $ = layui.jquery;
+        var layer = layui.layer;
+
+        form.verify({
+            StudentIdNumber: function (value) {
+                if (value.length != 10) {
+                    return '请输入正确的学号格式';
+                }
+            }
+        });
+
+        //表单提交
+        form.on('submit(kai)', function (data) {
+            //console.log(data.field);
+            $.ajax({
+                url: 'login',
+                type: 'post',
+                async: true,
+                data: data.field,
+                beforeSend: function () {
+                },
+                success: function (data) {
+                    var j = data;
+                    // console.log(data);
+                    // var j = JSON.parse(data);
+                    console.log(j);
+                    console.log(j.studentID);
+                    console.log(j.account);
+                    if (!j.studentID) {
+                        layer.alert("学号已经被绑定");
+                    } else if (!j.account) {
+                        layer.alert("航电账号已经被绑定");
+                    } else {
+                        layer.alert("信息收集成功");
+                        // location.href = "/ACMinfo/success.html"
+                    }
+                }
+            });
+            return false;
+        });
+
+
+        //点击样例信息
+        $("#btn5").click(function (obj) {
+            form.val('frm', {
+                name: '王楷',
+                classes: '10',
+                StudentID: '1714010624',
+                account: 'asserkai'
+            });
+        });
+    });
+</script>
+</body>
+</html>

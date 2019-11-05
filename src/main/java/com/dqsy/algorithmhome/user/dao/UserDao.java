@@ -12,16 +12,6 @@ import java.util.List;
 @Repository("UserDao")
 public interface UserDao {
     /**
-     * 增加一条 用户信息
-     * 输入 user   返回值 int
-     *
-     * @param user
-     * @return
-     */
-    @Insert("insert into user(username,password,eml,tel,idCard,info,uName,grade,sNumber,tNumber,photo,sitNumber,tSize,remark) values(#{username},#{password},#{eml},#{tel},#{idCard},#{info},#{uName},#{grade},#{sNumber},#{tNumber},#{photo},#{sitNumber},#{tSize},#{remark})")
-    int AddUser(User user);
-
-    /**
      * 查找 是否有这个用户
      * 输入  username   输出 User
      *
@@ -30,6 +20,16 @@ public interface UserDao {
      */
     @Select("select * from user where username = #{username}")
     User FindUser(String username); // 是否有指定用户 最多只能查到一个
+
+    /**
+     * 增加一条 用户信息
+     * 输入 user   返回值 int
+     *
+     * @param user
+     * @return
+     */
+    @Insert("insert into user(username,password,eml,tel,idCard,info,uName,grade,sNumber,tNumber,photo,sitNumber,tSize,remark) values(#{username},#{password},#{eml},#{tel},#{idCard},#{info},#{uName},#{grade},#{sNumber},#{tNumber},#{photo},#{sitNumber},#{tSize},#{remark})")
+    int AddUser(User user);
 
 
     /**
