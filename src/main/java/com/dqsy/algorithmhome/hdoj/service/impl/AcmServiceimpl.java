@@ -55,7 +55,6 @@ class AcmServiceimpl implements AcmService {
 
 
     public List<acmstu> findstuds() {//第几页 pages   rows 一共有几页
-
         List<acmstu> findstus = acmDao.findstus();
         Collections.sort(findstus);
         return findstus;
@@ -66,18 +65,24 @@ class AcmServiceimpl implements AcmService {
     public List<acmstu> BlurFindStu(String cols, String val) {
 
         if (cols.equals("name")) {
-            return acmDao.BlurFindStuName(val);
+            List<acmstu> acmstus = acmDao.BlurFindStuName(val);
+            Collections.sort(acmstus);
+            return acmstus;
 
         } else if (cols.equals("classes")) {
-            return acmDao.BlurFindStuClasses(val);
+            List<acmstu> acmstus = acmDao.BlurFindStuClasses(val);
+            return acmstus;
 
         } else if (cols.equals("hduUser")) {
-            return acmDao.BlurFindStuAccount(val);
+            List<acmstu> acmstus = acmDao.BlurFindStuAccount(val);
+            return acmstus;
 
         } else if (cols.equals("StudentID")) {
-            return acmDao.BlurFindStuStudentID(val);
+            List<acmstu> acmstus = acmDao.BlurFindStuStudentID(val);
+            return acmstus;
         } else {
-            return acmDao.findstus();
+
+            return findstuds();
 
         }
 
@@ -91,7 +96,6 @@ class AcmServiceimpl implements AcmService {
             int htmlSrc = getHTMLSrc(acm.getHduUser());
             acmDao.UpdateSum(acm.getHduUser(), htmlSrc);
         }
-
         return 1;
     }
 
