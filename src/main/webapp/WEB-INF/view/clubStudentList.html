@@ -25,8 +25,8 @@
         <input class="layui-input" name="id" id="demoReload" autocomplete="off">
     </div>
     <button class="layui-btn" data-type="reload" id="search">搜索</button>
-    <button class="layui-btn layui-btn-normal" id="rePy">重新爬数据</button>
-
+    <!-- <button class="layui-btn layui-btn-normal" id="rePy">重新爬数据</button> -->
+    <!-- <button class="layui-btn layui-btn-normal" id="test">重新aaa</button> -->
 </div>
 <table id='demoKai' lay-filter='test'></table>
 <script src="layui/layui.js" type="text/javascript" charset="utf-8"></script>
@@ -50,7 +50,7 @@
             },
             title: 'ACM社团学生列表',
             loading: true,
-            page: true,
+
             cols: [
                 [{
                     field: 'name',
@@ -92,31 +92,21 @@
         });
 
 
-        var active = {
-            reload: function () {
-                var demoReload = $('#demoReload');
-                //执行重载
-                table.reload('testReload', {
-                        page: {
-                            curr: 1 //重新从第 1 页开始
-                        },
-                        where: {
-                            key: {
-                                name:
-                                    demoReload.val()
-                            }
-                        }
-                    },
-                    'data'
-                )
-                ;
-            }
-        };
-
-
         $("#search").click(function () {
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
+            var key = {};
+            key['cols'] = $('#sele').val()
+            key['val'] = $('#demoReload').val();
+            console.log(key);
+            table.reload('testReload', {
+                where: key
+            });
+            // table.reload('#demoKai',{
+            // 	where:{
+            // 		key:{
+
+            // 		}
+            // 	}
+            // });
         })
 
     });

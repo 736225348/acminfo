@@ -71,7 +71,7 @@ class AcmServiceimpl implements AcmService {
         } else if (cols.equals("classes")) {
             return acmDao.BlurFindStuClasses(val);
 
-        } else if (cols.equals("account")) {
+        } else if (cols.equals("hduUser")) {
             return acmDao.BlurFindStuAccount(val);
 
         } else if (cols.equals("StudentID")) {
@@ -95,11 +95,13 @@ class AcmServiceimpl implements AcmService {
         return 1;
     }
 
-    //"*/10 * * * * ?"
-    //"0 0 10,14,22 * * ?"
-    @Scheduled(cron = "0 0 10,14,22 * * ?")
+    //任务 定制
+    //"*/20 * * * * ?"
+    //"0 0 10,22 * * ?"
+    //每天上午10点，下午2点，10点
+    @Scheduled(cron = "0 0 10,22 * * ?")
     public void climbdata() {
-        System.out.println("定时任务...");
+        RefreshData();
     }
 
 

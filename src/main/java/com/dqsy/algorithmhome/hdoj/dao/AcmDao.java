@@ -76,7 +76,7 @@ public interface AcmDao {
     @Select("select * from  clubStudent where classes  like concat('%',#{val},'%') ")
     List<acmstu> BlurFindStuClasses(@Param("val") String val);
 
-    @Select("select * from  clubStudent where account  like concat('%',#{val},'%') ")
+    @Select("select * from  clubStudent where hduUser  like concat('%',#{val},'%') ")
     List<acmstu> BlurFindStuAccount(@Param("val") String val);
 
     @Select("select * from  clubStudent where StudentID  like concat('%',#{val},'%') ")
