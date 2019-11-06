@@ -16,7 +16,7 @@ public class loginInterceptor implements HandlerInterceptor {
         User ayUser = (User) session.getAttribute("ayUser");
         if (ayUser == null) {
 //            httpServletRequest.getRequestDispatcher("/WEB-INF/view/index.html").forward(httpServletRequest, httpServletResponse);
-            httpServletResponse.sendRedirect("index");
+            httpServletResponse.sendRedirect("/user/index");
             return false;
         } else {
             return true;

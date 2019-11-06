@@ -2,13 +2,8 @@ package com.dqsy.algorithmhome.hdoj.service.impl;
 
 import com.dqsy.algorithmhome.hdoj.dao.AcmDao;
 import com.dqsy.algorithmhome.hdoj.domain.acmstu;
-import com.dqsy.algorithmhome.hdoj.domain.proving;
 import com.dqsy.algorithmhome.hdoj.service.AcmService;
-import com.dqsy.algorithmhome.user.domain.EasyGrid;
-import com.dqsy.algorithmhome.user.domain.User;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,11 +11,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 
 @Service("AcmService")
@@ -33,22 +27,23 @@ class AcmServiceimpl implements AcmService {
 
     //注册失败返回一
     @Override
-    public proving addstu(acmstu acmstu) {
+    public int addstu(acmstu acmstu) {
         com.dqsy.algorithmhome.hdoj.domain.acmstu findstu = acmDao.findstu(acmstu.getStudentID());
-        com.dqsy.algorithmhome.hdoj.domain.acmstu findaccount = acmDao.findaccount(acmstu.getAccount());
-        proving proving = new proving(true, true);
+        com.dqsy.algorithmhome.hdoj.domain.acmstu findaccount = acmDao.findaccount(acmstu.getHduUser());
+
         if (findstu != null) {
-            proving.setStudentID(false);
-        }
-        if (findaccount != null) {
-            proving.setAccount(false);
-        }
-        if (findstu == null && findaccount == null) {
-            int addstu = acmDao.addstu(acmstu);
-            return proving;
+            return 1; // 学号已经被注册
+        } else if (findaccount != null) {
+            return 2; // 杭电号已经被注册
+        } else if (getHTMLSrc(acmstu.getHduUser()) == -1) {
+            return 3; //杭电号不存在
+
         } else {
-            return proving;
+            acmstu.setCount(getHTMLSrc(acmstu.getHduUser()));
+            acmDao.addstu(acmstu);
+            return 0;
         }
+
 
     }
 
@@ -67,15 +62,44 @@ class AcmServiceimpl implements AcmService {
 
     }
 
+    @Override
+    public List<acmstu> BlurFindStu(String cols, String val) {
 
-    public String RefreshData() {
-        List<acmstu> findstus = acmDao.findstus();
-        for (acmstu acm : findstus) {
-            int htmlSrc = getHTMLSrc(acm.getAccount());
-            acmDao.UpdateSum(acm.getAccount(), htmlSrc);
+        if (cols.equals("name")) {
+            return acmDao.BlurFindStuName(val);
+
+        } else if (cols.equals("classes")) {
+            return acmDao.BlurFindStuClasses(val);
+
+        } else if (cols.equals("account")) {
+            return acmDao.BlurFindStuAccount(val);
+
+        } else if (cols.equals("StudentID")) {
+            return acmDao.BlurFindStuStudentID(val);
+        } else {
+            return acmDao.findstus();
+
         }
 
-        return "更新数据成功";
+
+    }
+
+
+    public int RefreshData() {
+        List<acmstu> findstus = acmDao.findstus();
+        for (acmstu acm : findstus) {
+            int htmlSrc = getHTMLSrc(acm.getHduUser());
+            acmDao.UpdateSum(acm.getHduUser(), htmlSrc);
+        }
+
+        return 1;
+    }
+
+    //"*/10 * * * * ?"
+    //"0 0 10,14,22 * * ?"
+    @Scheduled(cron = "0 0 10,14,22 * * ?")
+    public void climbdata() {
+        System.out.println("定时任务...");
     }
 
 
@@ -84,7 +108,7 @@ class AcmServiceimpl implements AcmService {
         InputStream openStream = null;
         BufferedReader buf = null;
         String qwww = "";
-        Integer valueOf = 0;
+        Integer valueOf = -1;
         try {
             String line = null;
             URL theUrl = new URL(url);

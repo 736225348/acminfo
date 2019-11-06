@@ -54,16 +54,16 @@
                 <label class="layui-form-label">班级:</label>
                 <div class="layui-input-inline">
                     <select name="classes" lay-filter="area">
-                        <option value="1" selected="">19级计类一班</option>
-                        <option value="2">19级计类二班</option>
-                        <option value="3">19级计类三班</option>
-                        <option value="4">19级计类四班</option>
-                        <option value="5">19级计类五班</option>
-                        <option value="6">19级计类六班</option>
-                        <option value="7">19级计类七班</option>
-                        <option value="8">19级计类八班</option>
-                        <option value="9">2018级</option>
-                        <option value="10">2017级</option>
+                        <option value="19级计类一班" selected="">19级计类一班</option>
+                        <option value="19级计类二班">19级计类二班</option>
+                        <option value="19级计类三班">19级计类三班</option>
+                        <option value="19级计类四班">19级计类四班</option>
+                        <option value="19级计类五班">19级计类五班</option>
+                        <option value="19级计类六班">19级计类六班</option>
+                        <option value="19级计类七班">19级计类七班</option>
+                        <option value="19级计类八班">19级计类八班</option>
+                        <option value="2018级">2018级</option>
+                        <option value="2017级">2017级</option>
                     </select>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             <div class="layui-form-item">
                 <label class="layui-form-label">航电用户名:</label>
                 <div class="layui-input-inline">
-                    <input type="text" id="" value="" name="account" lay-verify="required" autocomplete="off"
+                    <input type="text" id="" value="" name="hduUser" lay-verify="required" autocomplete="off"
                            placeholder="请输入航电OJ登录用户名"
                            class="layui-input"/>
                 </div>
@@ -119,7 +119,7 @@
 
         //表单提交
         form.on('submit(kai)', function (data) {
-            //console.log(data.field);
+            console.log(data.field);
             $.ajax({
                 url: 'login',
                 type: 'post',
@@ -128,19 +128,14 @@
                 beforeSend: function () {
                 },
                 success: function (data) {
-                    var j = data;
-                    // console.log(data);
-                    // var j = JSON.parse(data);
-                    console.log(j);
-                    console.log(j.studentID);
-                    console.log(j.account);
-                    if (!j.studentID) {
+                    if (data == 1) {
                         layer.alert("学号已经被绑定");
-                    } else if (!j.account) {
+                    } else if (data == 2) {
                         layer.alert("航电账号已经被绑定");
+                    } else if (data == 3) {
+                        layer.alert("航电账号不存在");
                     } else {
                         layer.alert("信息收集成功");
-                        // location.href = "/ACMinfo/success.html"
                     }
                 }
             });
@@ -152,9 +147,9 @@
         $("#btn5").click(function (obj) {
             form.val('frm', {
                 name: '王楷',
-                classes: '10',
+                classes: '2017级',
                 StudentID: '1714010624',
-                account: 'asserkai'
+                hduUser: 'asserkai'
             });
         });
     });

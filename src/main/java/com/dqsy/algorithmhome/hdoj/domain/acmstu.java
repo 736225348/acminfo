@@ -4,32 +4,32 @@ import javax.xml.crypto.Data;
 import java.util.Date;
 
 public class acmstu implements Comparable<acmstu> {
+    String StudentID;
     String name;
-    String classes;
-    String account;
-    int sum;
-
-    public int getSum() {
-        return sum;
-    }
-
-    public void setSum(int sum) {
-        this.sum = sum;
-    }
+    String hduUser;
 
     @Override
     public String toString() {
         return "acmstu{" +
-                "name='" + name + '\'' +
+                "StudentID='" + StudentID + '\'' +
+                ", name='" + name + '\'' +
+                ", hduUser='" + hduUser + '\'' +
                 ", classes='" + classes + '\'' +
-                ", account='" + account + '\'' +
-                ", time=" + time +
-                ", StudentID='" + StudentID + '\'' +
+                ", count=" + count +
                 '}';
     }
 
-    Date time;
-    String StudentID;
+    String classes;
+    int count;
+
+
+    public String getStudentID() {
+        return StudentID;
+    }
+
+    public void setStudentID(String studentID) {
+        StudentID = studentID;
+    }
 
     public String getName() {
         return name;
@@ -37,6 +37,14 @@ public class acmstu implements Comparable<acmstu> {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getHduUser() {
+        return hduUser;
+    }
+
+    public void setHduUser(String hduUser) {
+        this.hduUser = hduUser;
     }
 
     public String getClasses() {
@@ -47,32 +55,17 @@ public class acmstu implements Comparable<acmstu> {
         this.classes = classes;
     }
 
-    public String getAccount() {
-        return account;
+    public int getCount() {
+        return count;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setCount(int count) {
+        this.count = count;
     }
 
-    public Date getTime() {
-        return time;
-    }
-
-    public void setTime(Date time) {
-        this.time = time;
-    }
-
-    public String getStudentID() {
-        return StudentID;
-    }
-
-    public void setStudentID(String studentID) {
-        StudentID = studentID;
-    }
 
     @Override
     public int compareTo(acmstu o) {
-        return -(this.getSum() - o.getSum());
+        return -(this.getCount() - o.getCount());
     }
 }
