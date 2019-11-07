@@ -1,6 +1,7 @@
 package com.dqsy.algorithmhome.hdoj.dao;
 
 import com.dqsy.algorithmhome.hdoj.domain.acmstu;
+import com.dqsy.algorithmhome.hdoj.domain.hdulog;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -81,6 +82,9 @@ public interface AcmDao {
 
     @Select("select * from  clubStudent where StudentID  like concat('%',#{val},'%') ")
     List<acmstu> BlurFindStuStudentID(@Param("val") String val);
+
+    @Insert("insert into hduLog (StudentID,count,hdate) values (#{StudentID},#{count},#{hdate})")
+    void addhdate(hdulog hdulog);
 
 
 }

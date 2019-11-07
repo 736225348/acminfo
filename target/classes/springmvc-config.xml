@@ -52,7 +52,6 @@
             <mvc:exclude-mapping path="/index"/>
             <mvc:exclude-mapping path="/register"/>
             <mvc:exclude-mapping path="/login"/>
-            <mvc:exclude-mapping path="/azcs"/>
             <bean class="com.dqsy.algorithmhome.user.intercepytor.loginInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

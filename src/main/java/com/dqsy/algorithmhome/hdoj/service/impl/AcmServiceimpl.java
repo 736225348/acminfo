@@ -2,6 +2,7 @@ package com.dqsy.algorithmhome.hdoj.service.impl;
 
 import com.dqsy.algorithmhome.hdoj.dao.AcmDao;
 import com.dqsy.algorithmhome.hdoj.domain.acmstu;
+import com.dqsy.algorithmhome.hdoj.domain.hdulog;
 import com.dqsy.algorithmhome.hdoj.service.AcmService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
@@ -107,7 +108,21 @@ class AcmServiceimpl implements AcmService {
     public void climbdata() {
         RefreshData();
     }
+    //   每天晚上十点更新数据
+    @Scheduled(cron = "0 0 22 * * ?")
+    public void addclimbdata() {
+        List<acmstu> findstus = acmDao.findstus();
+        for (acmstu acm : findstus) {
+            String str = acm.getStudentID();
+            int count = acm.getCount();
+            hdulog hdulog = new hdulog();
+            hdulog.setCount(count);
+            hdulog.setStudentID(str);
+            hdulog.setHdate(new Date());
+            acmDao.addhdate(hdulog);
+        }
 
+    }
 
     public Integer getHTMLSrc(String account) {
         String url = "http://acm.hdu.edu.cn/userstatus.php?user=" + account;
