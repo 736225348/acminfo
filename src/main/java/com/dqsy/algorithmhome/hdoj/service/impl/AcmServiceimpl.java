@@ -18,6 +18,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
+
 @Service("AcmService")
 class AcmServiceimpl implements AcmService {
 
@@ -72,24 +73,24 @@ class AcmServiceimpl implements AcmService {
 
         } else if (cols.equals("classes")) {
             List<acmstu> acmstus = acmDao.BlurFindStuClasses(val);
+            Collections.sort(acmstus);
             return acmstus;
 
         } else if (cols.equals("hduUser")) {
             List<acmstu> acmstus = acmDao.BlurFindStuAccount(val);
+            Collections.sort(acmstus);
             return acmstus;
 
         } else if (cols.equals("StudentID")) {
             List<acmstu> acmstus = acmDao.BlurFindStuStudentID(val);
+            Collections.sort(acmstus);
             return acmstus;
         } else {
-
             return findstuds();
 
         }
 
-
     }
-
 
     public int RefreshData() {
         List<acmstu> findstus = acmDao.findstus();
@@ -108,6 +109,7 @@ class AcmServiceimpl implements AcmService {
     public void climbdata() {
         RefreshData();
     }
+
     //   每天晚上十点更新数据
     @Scheduled(cron = "0 0 22 * * ?")
     public void addclimbdata() {
@@ -158,7 +160,6 @@ class AcmServiceimpl implements AcmService {
                 } // 用户名
 
                 if (line.contains("<i style=\"color:blue\">from:")) {
-
 //					System.out.println(line);  这里面有用户建立的时间
                     qwe:
                     for (int i = line.length() - 1; i >= 0; i--) {
@@ -168,13 +169,9 @@ class AcmServiceimpl implements AcmService {
                                     break qwe;
 
                                 }
-
                             }
-
                         }
-
                     }
-
                 }
                 int sq = 0;
 
