@@ -6,46 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="442158f3-2b45-4e51-ab0b-e4d7954ca457" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dqsy/acminfo/user/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/dqsy/acminfo/user/intercepytor/loginInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Algorithm_Home_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Algorithm_Home_war.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Algorithm_Home_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Algorithm_Home_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="442158f3-2b45-4e51-ab0b-e4d7954ca457" name="Default Changelist" comment="更新部分信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Algorithm_Home.iml" beforeDir="false" afterPath="$PROJECT_DIR$/acminfo.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/Task/climbdata.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/controller/AcmUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/dao/AcmDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/domain/acmstu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/domain/hdulog.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/service/AcmService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/service/impl/AcmServiceimpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/controller/SenEmailController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/controller/UserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/dao/UserDao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/domain/EasyGrid.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/domain/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/domain/judge.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/intercepytor/loginInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/user/service/impl/UserServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/test/com/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/test/com/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Algorithm_Home/WEB-INF/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Algorithm_Home/WEB-INF/classes/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Algorithm_Home/WEB-INF/classes/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/Algorithm_Home/WEB-INF/classes/springmvc-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/Algorithm_Home.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/applicationContext.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dqsy/algorithmhome/user/controller/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dqsy/algorithmhome/user/dao/UserDao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dqsy/algorithmhome/user/domain/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dqsy/algorithmhome/user/service/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/dqsy/algorithmhome/user/service/impl/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/springmvc-config.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -94,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="65" column="20" lean-forward="true" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+            <state relative-caret-position="87">
+              <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -207,7 +170,12 @@
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
-      <expand />
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="Algorithm_Home Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
       <select />
     </treeState>
   </component>
@@ -223,6 +191,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -246,7 +215,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -266,7 +234,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -741,7 +709,8 @@
       <workItem from="1573788976568" duration="921000" />
       <workItem from="1573789907549" duration="23000" />
       <workItem from="1573789967332" duration="32000" />
-      <workItem from="1573790214927" duration="221000" />
+      <workItem from="1573790214927" duration="1063000" />
+      <workItem from="1573791321211" duration="161000" />
     </task>
     <task id="LOCAL-00001" summary="在 控制器增加了一个方法">
       <created>1571379025068</created>
@@ -876,7 +845,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573732837370</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="更新部分信息">
+      <created>1573790462955</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1573790462955</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -885,7 +861,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="336244000" />
+    <option name="totallyTimeSpent" value="337247000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -900,7 +876,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8639344" visible="true" weight="0.22239032" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8639344" visible="true" weight="0.22541603" />
       <window_info id="Structure" order="1" sideWeight="0.16163793" side_tool="true" weight="0.19894099" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -911,7 +887,7 @@
       <window_info id="Web" order="8" sideWeight="0.13584287" side_tool="true" weight="0.27155825" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32786885" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.28688523" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28032786" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -925,6 +901,7 @@
       <window_info anchor="bottom" id="Spring" order="13" weight="0.41967213" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.16885246" />
       <window_info anchor="bottom" id="Application Servers" order="15" weight="0.28688523" />
+      <window_info anchor="bottom" id="GitHub Pull Requests" order="16" visible="true" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -1081,8 +1058,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="65" column="20" lean-forward="true" selection-start-line="65" selection-start-column="20" selection-end-line="65" selection-end-column="20" />
+        <state relative-caret-position="87">
+          <caret line="118" column="36" lean-forward="true" selection-start-line="118" selection-start-column="36" selection-end-line="118" selection-end-column="36" />
         </state>
       </provider>
     </entry>
