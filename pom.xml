@@ -213,7 +213,7 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
-        
+
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
@@ -272,7 +272,6 @@
             <artifactId>jsqlparser</artifactId>
             <version>${jsqlparser-version}</version>
         </dependency>
-
 
 
     </dependencies>

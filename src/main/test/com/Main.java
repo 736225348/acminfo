@@ -1,29 +1,6 @@
 package com;
 
 
-import com.alibaba.druid.sql.visitor.functions.If;
-import com.dqsy.algorithmhome.user.dao.UserDao;
-import com.dqsy.algorithmhome.user.domain.User;
-import com.dqsy.algorithmhome.user.service.UserService;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.Test;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import javax.annotation.Resource;
-import java.io.InputStream;
-import java.security.Signature;
-import java.util.Properties;
-import javax.mail.Address;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
 public class Main {
     public static void main(String[] args) {
         Singleton1 singleton1 = new Singleton1();
