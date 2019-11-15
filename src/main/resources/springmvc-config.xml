@@ -59,5 +59,4 @@
     <mvc:resources location="/layui/images/" mapping="/layui/images/**"/>
     <mvc:resources location="/layui/lay/" mapping="/layui/lay/**"/>
 
-
 </beans>
