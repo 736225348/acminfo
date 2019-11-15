@@ -6,10 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="442158f3-2b45-4e51-ab0b-e4d7954ca457" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springmvc-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/springmvc-config.xml" afterDir="false" />
-    </list>
+    <list default="true" id="442158f3-2b45-4e51-ab0b-e4d7954ca457" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,11 +37,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc-config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+            <state relative-caret-position="281">
+              <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mail.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -751,7 +757,7 @@
       <workItem from="1573789907549" duration="23000" />
       <workItem from="1573789967332" duration="32000" />
       <workItem from="1573790214927" duration="1063000" />
-      <workItem from="1573791321211" duration="3050000" />
+      <workItem from="1573791321211" duration="3159000" />
     </task>
     <task id="LOCAL-00001" summary="在 控制器增加了一个方法">
       <created>1571379025068</created>
@@ -900,7 +906,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573791497652</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="更新部分信息">
+      <created>1573794789176</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1573794789176</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -909,7 +922,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340136000" />
+    <option name="totallyTimeSpent" value="340245000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -922,9 +935,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8639344" visible="true" weight="0.22541603" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8639344" visible="true" weight="0.22541603" />
       <window_info id="Structure" order="1" sideWeight="0.16163793" side_tool="true" weight="0.19894099" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -945,7 +957,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32786885" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="12" visible="true" weight="0.21639344" />
+      <window_info anchor="bottom" id="Version Control" order="12" visible="true" weight="0.21639344" />
       <window_info anchor="bottom" id="Spring" order="13" weight="0.41967213" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.16885246" />
       <window_info anchor="bottom" id="Application Servers" order="15" weight="0.28688523" />
@@ -1022,13 +1034,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/view/test.html" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dqsy/acminfo/user/domain/User.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dqsy/algorithmhome/hdoj/dao/HdojDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mail.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dqsy/acminfo/user/domain/EasyGrid.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dqsy/acminfo/user/domain/judge.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/dqsy/acminfo/user/service/impl/UserServiceImpl.java" />
@@ -1106,8 +1111,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/springmvc-config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="27" column="19" lean-forward="true" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        <state relative-caret-position="281">
+          <caret line="34" column="39" lean-forward="true" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mail.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
         </state>
       </provider>
     </entry>
